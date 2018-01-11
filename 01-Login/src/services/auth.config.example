@@ -7,5 +7,5 @@ export const AUTH_CONFIG = {
   clientId: '{Auth0_Client_ID}',
   domain: '{Auth0_Domain}', // e.g., you.auth0.com
   callbackURL: location.href,
-  packageIdentifier: '{Widget_ID_from_config.xml}'
+  packageIdentifier: 'com.auth0.ionic-sample'
 };
