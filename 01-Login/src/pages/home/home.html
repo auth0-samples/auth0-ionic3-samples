@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    update any existing page or create new pages.
+  </p>
+
+  <div *ngIf="!auth.loggedIn">
+    <button
+      ion-button
+      block
+      color="primary"
+      (click)="auth.login()">Log In</button>
+  </div>
+  <div *ngIf="auth.loggedIn">
+    <p>You are logged in as the following user:</p>
+    <pre>{{ auth.user | json }}</pre>
+    <button
+      ion-button
+      block
+      color="danger"
+      (click)="auth.logout()">Log Out</button>
+  </div>
+</ion-content>
