@@ -26,11 +26,10 @@ Clone this repo to your local machine:
 $ git clone https://github.com/auth0-samples/auth0-ionic3-samples.git
 ```
 
-Once the repo is downloaded, navigate into the appropriate sample folder in your local filesystem, such as `01-Login` (this folder).
-
-From the sample folder, install that app sample's dependencies:
+Once the repo is downloaded, navigate into the appropriate sample folder in your local filesystem, such as `01-Login` (this folder). From the sample folder, install that sample app's dependencies:
 
 ```bash
+$ cd auth0-ionic3-samples/01-Login
 $ npm install
 ```
 
