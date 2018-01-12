@@ -31,6 +31,7 @@
     "cordova-ios": "4.5.4",
     "cordova-plugin-customurlscheme": "^4.3.0",
     "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-inappbrowser": "^2.0.1",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-safariviewcontroller": "^1.5.2",
     "cordova-plugin-splashscreen": "^4.0.3",
@@ -62,7 +63,8 @@
         "ANDROID_HOST": "kmaida.auth0.com",
         "ANDROID_PATHPREFIX": "/cordova/com.auth0.ionic/callback"
       },
-      "cordova-plugin-safariviewcontroller": {}
+      "cordova-plugin-safariviewcontroller": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "ios",

@@ -15,7 +15,7 @@
     update any existing page or create new pages.
   </p>
 
-  <p *ngIf="auth.loading" text-center>Logging in...</p>
+  <p *ngIf="auth.loading" text-center>Loading...</p>
   <ng-template [ngIf]="!auth.loading">
     <!-- Not loading, not logged in: show login button -->
     <button
