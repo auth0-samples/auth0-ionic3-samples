@@ -15,20 +15,28 @@
     update any existing page or create new pages.
   </p>
 
-  <div *ngIf="!auth.loggedIn">
+  <p *ngIf="auth.loading" text-center>Logging in...</p>
+  <ng-template [ngIf]="!auth.loading">
+    <!-- Not loading, not logged in: show login button -->
     <button
       ion-button
       block
       color="primary"
+      *ngIf="!auth.loggedIn"
       (click)="auth.login()">Log In</button>
-  </div>
-  <div *ngIf="auth.loggedIn">
-    <p>You are logged in as the following user:</p>
-    <pre>{{ auth.user | json }}</pre>
-    <button
-      ion-button
-      block
-      color="danger"
-      (click)="auth.logout()">Log Out</button>
-  </div>
+    <!-- Not loading, logged in: show profile and logout button -->
+    <div *ngIf="auth.loggedIn">
+      <h3>Hello!</h3>
+      <ng-template [ngIf]="auth.user">
+        <p>You are logged in as the following user:</p>
+        <pre>{{ auth.user | json }}</pre>
+      </ng-template>
+      <button
+        ion-button
+        block
+        color="danger"
+        (click)="auth.logout()">Log Out</button>
+    </div>
+  </ng-template>
+
 </ion-content>

@@ -13,6 +13,7 @@ export class AuthService {
   accessToken: string;
   user: any;
   loggedIn: boolean;
+  loading = true;
 
   constructor(
     public zone: NgZone,
@@ -20,16 +21,22 @@ export class AuthService {
   ) {
     this.storage.get('profile').then(user => this.user = user);
     this.storage.get('access_token').then(token => this.accessToken = token);
-    this.storage.get('expires_at').then(exp => this.loggedIn = Date.now() < JSON.parse(exp));
+    this.storage.get('expires_at').then(exp => {
+      this.loggedIn = Date.now() < JSON.parse(exp);
+      this.loading = false;
+    });
   }
 
   login() {
+    this.loading = true;
     const options = {
       scope: 'openid profile offline_access'
     };
     // Authorize login request with Auth0: open login page and get auth results
     this.Client.authorize(options, (err, authResult) => {
       if (err) {
+        // Check build logPath for console.logs
+        console.log(err);
         throw err;
       }
       // Set access token
@@ -38,17 +45,19 @@ export class AuthService {
       // Set access token expiration
       const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
       this.storage.set('expires_at', expiresAt);
+      // Set logged in
+      this.loading = false;
+      this.loggedIn = true;
       // Fetch user's profile info
       this.Auth0.client.userInfo(this.accessToken, (err, profile) => {
         if (err) {
+          // Check build logPath for console.logs
+          console.log(err);
           throw err;
         }
-        this.storage.set('profile', profile).then(val => {
-          this.zone.run(() => {
-            this.user = profile;
-            this.loggedIn = true;
-          });
-        });
+        this.storage.set('profile', profile).then(val =>
+          this.zone.run(() => this.user = profile)
+        );
       });
     });
   }
