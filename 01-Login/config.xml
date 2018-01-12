@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.auth0.ionic-sample" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.auth0.ionic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>auth0-app</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.254.18:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -19,6 +19,8 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -85,11 +87,12 @@
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.5.2" />
     <allow-navigation href="http://192.168.42.127:8100" />
     <allow-navigation href="http://192.168.254.18:8100" />
-    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
-        <variable name="URL_SCHEME" value="com.auth0.ionic-sample" />
-        <variable name="ANDROID_SCHEME" value="com.auth0.ionic-sample" />
-        <variable name="ANDROID_HOST" value="kmaida.auth0.com" />
-        <variable name="ANDROID_PATHPREFIX" value="/cordova/com.auth0.ionic-sample/callback" />
-    </plugin>
     <engine name="ios" spec="4.5.4" />
+    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
+        <variable name="URL_SCHEME" value="com.auth0.ionic" />
+        <variable name="ANDROID_SCHEME" value="com.auth0.ionic" />
+        <variable name="ANDROID_HOST" value="kmaida.auth0.com" />
+        <variable name="ANDROID_PATHPREFIX" value="/cordova/com.auth0.ionic/callback" />
+    </plugin>
 </widget>
