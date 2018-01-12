@@ -51,7 +51,6 @@
   "cordova": {
     "plugins": {
       "cordova-sqlite-storage": {},
-      "cordova-plugin-safariviewcontroller": {},
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
@@ -62,7 +61,8 @@
         "ANDROID_SCHEME": "com.auth0.ionic",
         "ANDROID_HOST": "kmaida.auth0.com",
         "ANDROID_PATHPREFIX": "/cordova/com.auth0.ionic/callback"
-      }
+      },
+      "cordova-plugin-safariviewcontroller": {}
     },
     "platforms": [
       "ios",

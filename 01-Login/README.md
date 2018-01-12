@@ -50,7 +50,9 @@ $ npm install
 2. Rename the `.example` suffix to the `.ts` extension to activate the file.
 3. Replace `{Auth0_Client_ID}` (x2) and `{Auth0_Domain}` with your Auth0 **Client ID** and **Domain** configuration from the Dashboard.
 
-## Remove and Re-add Custom URL Scheme Plugin
+## Add Custom URL Scheme Plugin
+
+TODO: remove this plugin from the sample repo and let people install it fresh on their own!!!
 
 The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) has been added to this repo, but it requires different configuration.
 
@@ -70,7 +72,6 @@ $ ionic cordova plugin add cordova-plugin-customurlscheme  --variable URL_SCHEME
 ```
 
 > **Note:** The `URL_SCHEME` variable is required for all platforms. Android variables are also added. However, iOS does not require any additional configuration.
-
 
 ## Run the App
 

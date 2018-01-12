@@ -35,8 +35,6 @@ export class AuthService {
     // Authorize login request with Auth0: open login page and get auth results
     this.Client.authorize(options, (err, authResult) => {
       if (err) {
-        // Check build logPath for console.logs
-        console.log(err);
         throw err;
       }
       // Set access token
@@ -51,8 +49,6 @@ export class AuthService {
       // Fetch user's profile info
       this.Auth0.client.userInfo(this.accessToken, (err, profile) => {
         if (err) {
-          // Check build logPath for console.logs
-          console.log(err);
           throw err;
         }
         this.storage.set('profile', profile).then(val =>
