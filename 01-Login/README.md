@@ -2,9 +2,9 @@
 
 This sample application contains an Ionic 3 starter app with Auth0 login.
 
-> **Note:** It is advised that you start with a clean starter app from scratch and follow the instructions in the [Quick Start](#) to get set up and running quickly and painlessly. If you choose to clone this repo, please note that you will need to `remove` and then `add` a plugin and also `run` the app in order to re-generate and configure everything appropriately for _your_ setup.
+> **Note:** It is advised that you begin with a clean starter app from scratch and follow the instructions in the [Quick Start](#) to get set up and running quickly and painlessly. Ionic / Cordova are sensitive to remnants being left behind by plugins and platforms being added, altered, or removed, so the most stable method of development is to start from a clean slate.
 
-If you are cloning the sample app, follow the instructions below.
+To work with the cloned sample app, follow the instructions below.
 
 ## Dependencies
 
@@ -20,7 +20,7 @@ You should also have the appropriate **native application development tools** se
 
 > **Note:** If using an emulator, make sure you also have a browser installed on the emulated device. In the case of Android, this may require the Google Play Store. See your emulator's documentation for details.
 
-## Clone Repo
+## Clone the Repo
 
 Clone this repo to your local machine:
 
@@ -28,7 +28,7 @@ Clone this repo to your local machine:
 $ git clone https://github.com/auth0-samples/auth0-ionic3-samples.git
 ```
 
-Once the repo is downloaded, navigate into the appropriate sample folder in your local filesystem, such as `01-Login` (this folder). From the sample folder, install that sample app's dependencies:
+Once the repo is downloaded, navigate into the appropriate sample folder in your local filesystem, such as `01-Login` (this folder). From the correct folder, install the sample app's dependencies:
 
 ```bash
 $ cd auth0-ionic3-samples/01-Login
@@ -54,19 +54,11 @@ $ npm install
 
 ## Add Custom URL Scheme Plugin
 
-@TODO: remove this plugin from the sample repo and have users install it fresh on their own.
-
-The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) has been added to this repo, but it requires different configuration.
+The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) is needed and it must be added with your specific configuration.
 
 > **Note:** If you ever need to change plugin configuration, it is best practice to _remove_ the plugin and then _add_ it again with new configuration, instead of manually updating the `config.xml` file!
 
-Remove the plugin with the following command:
-
-```bash
-$ ionic cordova plugin remove cordova-plugin-customurlscheme
-```
-
-After it has been successfully uninstalled, re-add it with your own `{your_Auth0_domain}` variable like so:
+Add the plugin with your own `{your_Auth0_domain}` variable like so:
 
 ```bash
 # replace {your_Auth0_domain} below:
