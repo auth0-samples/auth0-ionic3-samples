@@ -56,13 +56,13 @@ $ npm install
 
 The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) is needed and it must be added with your specific configuration.
 
-> **Note:** If you ever need to change plugin configuration, it is best practice to _remove_ the plugin and then _add_ it again with new configuration, instead of manually updating the `config.xml` file!
+> **Note:** If you ever need to change plugin configuration, it is best practice to _remove_ the plugin with the CLI and then _add_ it again with new configuration, instead of manually updating the `config.xml` file!
 
 Add the plugin with your own `{your_Auth0_domain}` variable like so:
 
 ```bash
 # replace {your_Auth0_domain} below:
-$ ionic cordova plugin add cordova-plugin-customurlscheme  --variable URL_SCHEME=com.auth0.ionic --variable ANDROID_SCHEME=com.auth0.ionic --variable ANDROID_HOST={your_Auth0_domain} --variable ANDROID_PATHPREFIX=/cordova/com.auth0.ionic/callback
+$ ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=com.auth0.ionic --variable ANDROID_SCHEME=com.auth0.ionic --variable ANDROID_HOST={your_Auth0_domain} --variable ANDROID_PATHPREFIX=/cordova/com.auth0.ionic/callback
 ```
 
 > **Note:** The `URL_SCHEME` variable is required for all platforms. Android variables are also added. However, iOS does not require any additional configuration.

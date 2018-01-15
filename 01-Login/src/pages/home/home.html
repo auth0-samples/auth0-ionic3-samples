@@ -5,16 +5,6 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-
   <p *ngIf="auth.loading" text-center>Loading...</p>
   <ng-template [ngIf]="!auth.loading">
     <!-- Not loading, not logged in: show login button -->
@@ -25,18 +15,20 @@
       *ngIf="!auth.loggedIn"
       (click)="auth.login()">Log In</button>
     <!-- Not loading, logged in: show profile and logout button -->
-    <div *ngIf="auth.loggedIn">
-      <h3>Hello!</h3>
-      <ng-template [ngIf]="auth.user">
-        <p>You are logged in as the following user:</p>
-        <pre>{{ auth.user | json }}</pre>
-      </ng-template>
+    <ng-template [ngIf]="auth.loggedIn">
+      <ion-card *ngIf="auth.user">
+        <img [src]="auth.user.picture">
+        <ion-card-content>
+          <ion-card-title>{{ auth.user.name }}</ion-card-title>
+          <pre>{{ auth.user | json }}</pre>
+        </ion-card-content>
+      </ion-card>
       <button
         ion-button
         block
         color="danger"
         (click)="auth.logout()">Log Out</button>
-    </div>
+    </ng-template>
   </ng-template>
 
 </ion-content>
