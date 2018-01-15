@@ -3,7 +3,7 @@
     <name>auth0-app</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.254.18:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,6 +86,7 @@
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <allow-navigation href="http://192.168.42.127:8100" />
     <allow-navigation href="http://192.168.254.18:8100" />
+    <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="com.auth0.ionic" />
         <variable name="ANDROID_SCHEME" value="com.auth0.ionic" />
@@ -93,8 +94,7 @@
         <variable name="ANDROID_PATHPREFIX" value="/cordova/com.auth0.ionic/callback" />
     </plugin>
     <allow-navigation href="http://192.168.56.1:8100" />
+    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.5.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
-    <engine name="ios" spec="4.5.4" />
-    <engine name="android" spec="7.0.0" />
 </widget>
