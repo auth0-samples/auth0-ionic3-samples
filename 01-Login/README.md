@@ -52,17 +52,13 @@ $ npm install
 2. Rename the `.example` suffix to the `.ts` extension to activate the file.
 3. Replace `{Auth0_Client_ID}` (x2) and `{Auth0_Domain}` with your Auth0 **Client ID** and **Domain** configuration from the Dashboard.
 
-## Remove and Re-Add Custom URL Scheme Plugin
+## Add Custom URL Scheme Plugin
 
-The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) is needed and it must be added with _your_ specific configuration. To do this, you should first _remove_ the plugin from this repo:
-
-```bash
-$ ionic cordova plugin remove cordova-plugin-customurlscheme
-```
+The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) is needed and it must be added with your specific configuration.
 
 > **Note:** If you ever need to change plugin configuration, it is generally best practice to _remove_ the plugin with the CLI and then _add_ it again with new configuration, instead of manually updating the `config.xml` file!
 
-Then add the plugin with your own `{your_Auth0_domain}` variable like so:
+Add the plugin with your own `{your_Auth0_domain}` variable like so:
 
 ```bash
 # replace {your_Auth0_domain} below:
