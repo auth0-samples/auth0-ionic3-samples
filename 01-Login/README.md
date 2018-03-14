@@ -2,7 +2,7 @@
 
 This sample application contains an Ionic 3 starter app with Auth0 login.
 
-> **Note:** It is advised that you begin with a clean starter app from scratch and follow the instructions in the [Quick Start](#) to get set up and running quickly and painlessly. Ionic / Cordova are sensitive to remnants being left behind by plugins and platforms being added, altered, or removed, so the most stable method of development is to start from a clean slate.
+> **Note:** It is advised that you begin with a clean starter app from scratch and follow the instructions in the [Quick Start](https://auth0.com/docs/quickstart/native/ionic3/01-login) to get set up and running quickly and painlessly. Ionic / Cordova are sensitive to remnants being left behind by plugins and platforms being added, altered, or removed, so the most stable method of development is to start from a clean slate.
 
 To work with the cloned sample app, follow the instructions below.
 
