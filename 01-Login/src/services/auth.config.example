@@ -6,6 +6,5 @@ export const AUTH_CONFIG = {
   // Needed for Auth0Cordova (capitalization: Id):
   clientId: '{Auth0_Client_ID}',
   domain: '{Auth0_Domain}', // e.g., you.auth0.com
-  callbackURL: location.href,
   packageIdentifier: 'com.auth0.ionic' // config.xml widget ID
 };
