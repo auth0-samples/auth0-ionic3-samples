@@ -46,7 +46,7 @@ Use the following commands to run the app on your desired platform(s) (e.g., `io
 
 ```bash
 # Run on desired platform (e.g., ios or android)
-$ npm run ionic:{platform} --livereload
+$ npm run ionic:{platform}
 ```
 
 This will then launch your app in the local emulation environment for the platform you chose (Xcode Simulator for iOS or the Android emulator of your choice).
