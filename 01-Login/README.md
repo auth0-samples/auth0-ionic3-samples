@@ -8,15 +8,7 @@ To work with the cloned sample app, follow the instructions below.
 
 ## Dependencies
 
-Install **Ionic and Cordova** globally:
-
-```
-$ npm install -g ionic cordova
-```
-
-> **Note:** You may have to use `sudo` or administrator privileges.
-
-You should also have the appropriate **native application development tools** set up on your local machine. If you don't own devices, you can use emulators. For **iOS**, you should install [Xcode](https://developer.apple.com/xcode/) (free) and for **Android**, install [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and an emulator of your choice, such as [Android Studio](https://developer.android.com/studio/index.html) (free) or better yet, [Genymotion](https://www.genymotion.com/) (paid, with free trial option).
+You should have the appropriate **native application development tools** set up on your local machine. If you don't own devices, you can use emulators. For **iOS**, you should install [Xcode](https://developer.apple.com/xcode/) (free) and for **Android**, install [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and an emulator of your choice, such as [Android Studio](https://developer.android.com/studio/index.html) (free) or better yet, [Genymotion](https://www.genymotion.com/) (paid, with free trial option).
 
 > **Note:** If using an emulator, make sure you also have a browser installed on the emulated device. In the case of Android, this may require the Google Play Store. See your emulator's documentation for details.
 
@@ -37,47 +29,24 @@ $ npm install
 
 ## Auth0 Setup
 
-1. Sign up for [a free Auth0 account](https://auth0.com/signup).
-2. Log into your [Auth0 Dashboard](https://manage.auth0.com).
-3. Navigate to the [Clients](https://manage.auth0.com/#/clients) section in the sidebar and create a new client by clicking the **+ Create Client** button.
-4. Give your app a name, such as "Ionic 3 Auth0 App", and select `Native` as the client type. Click the **Create** button.
-5. Make note of the **Domain** and **Client ID**. You will need these for the Ionic app's auth configuration.
-6. In **Allowed Callback URLs**, add: `com.auth0.ionic://{your_Auth0_domain}/cordova/com.auth0.ionic/callback` and replace `{your_Auth0_domain}` with the **Domain** identifier.
+1.  Sign up for [a free Auth0 account](https://auth0.com/signup).
+2.  Log into your [Auth0 Dashboard](https://manage.auth0.com).
+3.  Navigate to the [Clients](https://manage.auth0.com/#/clients) section in the sidebar and create a new client by clicking the **+ Create Client** button.
+4.  Give your app a name, such as "Ionic 3 Auth0 App", and select `Native` as the client type. Click the **Create** button.
+5.  Make note of the **Domain** and **Client ID**. You will need these for the Ionic app's auth configuration.
+6.  In **Allowed Callback URLs**, add: `com.auth0.ionic://{your_Auth0_domain}/cordova/com.auth0.ionic/callback` and replace `{your_Auth0_domain}` with the **Domain** identifier.
 
 > **Note:** You will add the **Allowed Origins (CORS)** shortly, after you `run` the app. Allowed navigation addresses will be automatically generated in the project's `config.xml` and you will then add them to your Auth0 configuration.
 
-## Add Auth0 Configuration to App
-
-1. Find the `src/services/auth.config.example` file in your Ionic app.
-2. Rename the `.example` suffix to the `.ts` extension to activate the file.
-3. Replace `{Auth0_Client_ID}` (x2) and `{Auth0_Domain}` with your Auth0 **Client ID** and **Domain** configuration from the Dashboard.
-
-## Add Custom URL Scheme Plugin
-
-The [Custom-URL-scheme plugin](https://github.com/EddyVerbruggen/Custom-URL-scheme) is needed and it must be added with your specific configuration.
-
-> **Note:** If you ever need to change plugin configuration, it is generally best practice to _remove_ the plugin with the CLI and then _add_ it again with new configuration, instead of manually updating the `config.xml` file!
-
-Add the plugin with your own `{your_Auth0_domain}` variable like so:
-
-```bash
-# replace {your_Auth0_domain} below:
-$ ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=com.auth0.ionic --variable ANDROID_SCHEME=com.auth0.ionic --variable ANDROID_HOST={your_Auth0_domain} --variable ANDROID_PATHPREFIX=/cordova/com.auth0.ionic/callback
-```
-
-> **Note:** The `URL_SCHEME` variable is required for all platforms. Android variables are also added. However, iOS does not require any additional configuration.
-
-## Add Platform and Run the App
+## Run the App
 
 You will now need to allow Ionic / Cordova to install the necessary plugins and update your `config.xml` appropriately for the platform you wish to run on.
 
-Use the following commands to add your desired platform(s) (e.g., `ios` or `android`) and run the app:
+Use the following commands to run the app on your desired platform(s) (e.g., `ios` or `android`):
 
 ```bash
-# Add platform (e.g., ios or android)
-$ ionic cordova platform add {platform}
 # Run on desired platform (e.g., ios or android)
-$ ionic cordova run {platform} --livereload
+$ npm run ionic:{platform} --livereload
 ```
 
 This will then launch your app in the local emulation environment for the platform you chose (Xcode Simulator for iOS or the Android emulator of your choice).
@@ -86,9 +55,9 @@ This will then launch your app in the local emulation environment for the platfo
 
 ## Update Auth0 Dashboard Configuration
 
-1. After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
-2. Make note of IP address URLs from any `<allow-navigation>` tags.
-3. Log into your [Auth0 Dashboard](https://manage.auth0.com) and go to your Ionic app client's **Settings**.
-4. Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 client and click the **Save Changes** button.
+1.  After executing the `run` command, your `config.xml` file should contain `<allow-navigation>` tag(s).
+2.  Make note of IP address URLs from any `<allow-navigation>` tags.
+3.  Log into your [Auth0 Dashboard](https://manage.auth0.com) and go to your Ionic app client's **Settings**.
+4.  Add the full allowed navigation addresses (including `http://` and ports) to the **Allowed Origins (CORS)** settings for your Auth0 client and click the **Save Changes** button.
 
 You should now be able to log into your app!
