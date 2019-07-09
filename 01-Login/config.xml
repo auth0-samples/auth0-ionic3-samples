@@ -90,11 +90,11 @@
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="com.auth0.ionic" />
         <variable name="ANDROID_SCHEME" value="com.auth0.ionic" />
-        <variable name="ANDROID_HOST" value="kmaida.auth0.com" />
+        <variable name="ANDROID_HOST" value="{DOMAIN}" />
         <variable name="ANDROID_PATHPREFIX" value="/cordova/com.auth0.ionic/callback" />
     </plugin>
     <allow-navigation href="http://192.168.56.1:8100" />
     <engine name="android" spec="~7.0.0" />
-    <plugin name="cordova-plugin-safariviewcontroller" spec="^1.5.2" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
+    <plugin name="cordova-plugin-safariviewcontroller" spec="^1.6.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
 </widget>
