@@ -7,8 +7,6 @@ import { AUTH_CONFIG } from './auth.config';
 import Auth0Cordova from '@auth0/cordova';
 import * as auth0 from 'auth0-js';
 
-declare let cordova: any;
-
 @Injectable()
 export class AuthService {
   Auth0 = new auth0.WebAuth(AUTH_CONFIG);
@@ -16,12 +14,13 @@ export class AuthService {
   accessToken: string;
   user: any;
   loggedIn: boolean;
+  cordova: any;
   loading = true;
 
   constructor(
     public zone: NgZone,
     private storage: Storage,
-    private safariViewController: SafariViewController
+    public safariViewController: SafariViewController
   ) {
     this.storage.get('profile').then(user => this.user = user);
     this.storage.get('access_token').then(token => this.accessToken = token);
@@ -86,7 +85,7 @@ export class AuthService {
           );
         } else {
           // use fallback browser
-          cordova.InAppBrowser.open(url, '_system');
+          this.cordova.InAppBrowser.open(url, '_system');
         }
       }
     );
