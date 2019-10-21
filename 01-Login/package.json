@@ -65,7 +65,7 @@
       "cordova-plugin-customurlscheme": {
         "URL_SCHEME": "com.auth0.ionic",
         "ANDROID_SCHEME": "com.auth0.ionic",
-        "ANDROID_HOST": "kmaida.auth0.com",
+        "ANDROID_HOST": "{DOMAIN}",
         "ANDROID_PATHPREFIX": "/cordova/com.auth0.ionic/callback"
       },
       "cordova-plugin-safariviewcontroller": {},
