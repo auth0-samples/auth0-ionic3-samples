@@ -8,6 +8,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 // Import Auth0Cordova
 import Auth0Cordova from '@auth0/cordova';
 
+import { AuthService } from '../services/auth.service';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -15,6 +17,7 @@ export class MyApp {
   rootPage:any = TabsPage;
 
   constructor(
+    auth: AuthService,
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen
@@ -27,6 +30,7 @@ export class MyApp {
 
       // Redirect back to app after authenticating
       (window as any).handleOpenURL = (url: string) => {
+        auth.safariViewController.hide();
         Auth0Cordova.onRedirectUri(url);
       }
     });

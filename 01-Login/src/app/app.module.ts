@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
+import { SafariViewController } from '@ionic-native/safari-view-controller';
+
 import { AuthService } from './../services/auth.service';
 
 import { AboutPage } from '../pages/about/about';
@@ -36,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage
   ],
   providers: [
+    SafariViewController,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

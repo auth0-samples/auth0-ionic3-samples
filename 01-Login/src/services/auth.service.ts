@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { SafariViewController } from '@ionic-native/safari-view-controller';
 
 // Import AUTH_CONFIG, Auth0Cordova, and auth0.js
 import { AUTH_CONFIG } from './auth.config';
@@ -13,11 +14,13 @@ export class AuthService {
   accessToken: string;
   user: any;
   loggedIn: boolean;
+  cordova: any;
   loading = true;
 
   constructor(
     public zone: NgZone,
-    private storage: Storage
+    private storage: Storage,
+    public safariViewController: SafariViewController
   ) {
     this.storage.get('profile').then(user => this.user = user);
     this.storage.get('access_token').then(token => this.accessToken = token);
@@ -65,5 +68,26 @@ export class AuthService {
     this.accessToken = null;
     this.user = null;
     this.loggedIn = false;
+
+    this.safariViewController.isAvailable()
+      .then((available: boolean) => {
+        let url = `https://${AUTH_CONFIG.domain}/v2/logout?client_id=${AUTH_CONFIG.clientId}&returnTo=${AUTH_CONFIG.packageIdentifier}://${AUTH_CONFIG.domain}/cordova/${AUTH_CONFIG.packageIdentifier}/callback`;
+        if (available) {
+          this.safariViewController.show({
+            url: url
+          })
+          .subscribe((result: any) => {
+              if(result.event === 'opened') console.log('Opened');
+              else if(result.event === 'loaded') console.log('Loaded');
+              else if(result.event === 'closed') console.log('Closed');
+            },
+            (error: any) => console.error(error)
+          );
+        } else {
+          // use fallback browser
+          this.cordova.InAppBrowser.open(url, '_system');
+        }
+      }
+    );
   }
 }

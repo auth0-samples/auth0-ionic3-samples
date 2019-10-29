@@ -35,6 +35,9 @@ $ npm install
 4.  Give your app a name, such as "Ionic 3 Auth0 App", and select `Native` as the client type. Click the **Create** button.
 5.  Make note of the **Domain** and **Client ID**. You will need these for the Ionic app's auth configuration.
 6.  In **Allowed Callback URLs**, add: `com.auth0.ionic://{your_Auth0_domain}/cordova/com.auth0.ionic/callback` and replace `{your_Auth0_domain}` with the **Domain** identifier.
+7.  In **Allowed Logout URLs**, add: `com.auth0.ionic://{your_Auth0_domain}/cordova/com.auth0.ionic/callback` and replace `{your_Auth0_domain}` with the **Domain** identifier.
+8.  In your `config.xml` find the `cordova-plugin-customurlscheme` plugin and in the line `<variable name="ANDROID_HOST" value="{DOMAIN}" />` replace `{DOMAIN}` with the **Domain** identifier.
+9.  In your `package.json` find the `cordova-plugin-customurlscheme` plugin and in the line `"ANDROID_HOST": "{DOMAIN}",` replace `{DOMAIN}` with the **Domain** identifier.
 
 > **Note:** You will add the **Allowed Origins (CORS)** shortly, after you `run` the app. Allowed navigation addresses will be automatically generated in the project's `config.xml` and you will then add them to your Auth0 configuration.
 
