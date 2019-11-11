@@ -38,6 +38,7 @@ export class AuthService {
     // Authorize login request with Auth0: open login page and get auth results
     this.Client.authorize(options, (err, authResult) => {
       if (err) {
+        this.zone.run(() => this.loading = false);
         throw err;
       }
       // Set access token
