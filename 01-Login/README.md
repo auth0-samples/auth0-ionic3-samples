@@ -38,6 +38,7 @@ $ npm install
 7.  In **Allowed Logout URLs**, add: `com.auth0.ionic://{your_Auth0_domain}/cordova/com.auth0.ionic/callback` and replace `{your_Auth0_domain}` with the **Domain** identifier.
 8.  In your `config.xml` find the `cordova-plugin-customurlscheme` plugin and in the line `<variable name="ANDROID_HOST" value="{DOMAIN}" />` replace `{DOMAIN}` with the **Domain** identifier.
 9.  In your `package.json` find the `cordova-plugin-customurlscheme` plugin and in the line `"ANDROID_HOST": "{DOMAIN}",` replace `{DOMAIN}` with the **Domain** identifier.
+10. Copy `auth.config.example.ts` into a new file in the same folder called `auth.config.ts`, and replace the values within with your own Auth0 application credentials.
 
 > **Note:** You will add the **Allowed Origins (CORS)** shortly, after you `run` the app. Allowed navigation addresses will be automatically generated in the project's `config.xml` and you will then add them to your Auth0 configuration.
 
