@@ -1,9 +1,11 @@
-# Deprecated repository
-This repository has been deprecated and superseded by the new [Ionic 4 samples repository](https://github.com/auth0-samples/auth0-ionic4-samples).
 
 # Auth0 Ionic 3 Samples
 
 This repo contains samples that demonstrate how to use [Auth0](https://auth0.com) in an [Ionic](https://ionicframework.com) (v3) application.
+
+## Deprecated repository
+
+This repository has been deprecated and superseded by the new [Ionic 4 samples repository](https://github.com/auth0-samples/auth0-ionic4-samples).
 
 ## Dependencies
 
